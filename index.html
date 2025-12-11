@@ -3,121 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Chupeta Digital - Editora Reatar</title>
+    <title>A Chupeta Digital - O Resgate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="hero">
-        <p class="super-headline">De pais que viveram o pesadelo para pais que buscam a solução</p>
-        
-        <h1>O Guia Definitivo para Resgatar a Infância e <br><span>Quebrar o Ciclo da Dependência Digital</span></h1>
-        
-        <p class="sub-headline">Descubra como proteger o cérebro do seu filho dos efeitos da "Chupeta Digital" e reconstruir os laços familiares antes que seja tarde.</p>
-
-        <div class="vsl-wrapper">
-            <div class="video-container">
-                <iframe id="vsl-player" src="https://www.youtube.com/embed/Tlm9tp07rDY?controls=0&modestbranding=1&showinfo=0&rel=0&enablejsapi=1&loop=1&playlist=Tlm9tp07rDY" title="Apresentação do Guia A Chupeta Digital" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="video-overlay"></div>
-                <div class="mute-overlay">
-                    <!-- Ícone SVG de Mudo -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16"><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM10.592 12.025a.5.5 0 0 1 .708 0l.707.707a.5.5 0 0 1 0 .708L11.305 14l.707.707a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 0 1-.708 0L10.592 15.41l-.707.707a.5.5 0 0 1-.708 0l-.707-.707a.5.5 0 0 1 0-.708l.707-.707-.707-.707a.5.5 0 0 1 0-.708l.707-.707a.5.5 0 0 1 .708 0zM10.592 1.025a.5.5 0 0 1 .708 0l.707.707a.5.5 0 0 1 0 .708L11.305 3l.707.707a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 0 1-.708 0L10.592 3.41l-.707.707a.5.5 0 0 1-.708 0L9.178 3.41a.5.5 0 0 1 0-.708l.707-.707.707-.707a.5.5 0 0 1 0-.708l.707-.707a.5.5 0 0 1 .708 0z"/></svg>
-                    <span>MUTADO</span>
+    <section class="hero-section">
+        <div class="overlay-layer"></div>
+        <div class="hero-content">
+            <div class="alert-pill"><i class="fa-solid fa-triangle-exclamation"></i> ALERTA URGENTE PARA PAIS</div>
+            <h1>Seu Filho Está Preso na <br><span class="gradient-text">CHUPETA DIGITAL</span> e Você <br>Nem Percebeu</h1>
+            <p class="subheadline">Irritabilidade constante. Sono perturbado. Isolamento social. Queda nas notas.<br><strong>É o cérebro do seu filho pedindo SOCORRO.</strong></p>
+            
+            <div class="video-box">
+                <div class="video-placeholder" onclick="alert('Aqui ficará o seu vídeo VSL')">
+                    <i class="fa-solid fa-play-circle" style="font-size: 60px; color: white; opacity: 0.9;"></i>
+                    <p style="margin-top: 15px; font-weight: 600;">ASSISTIR APRESENTAÇÃO</p>
                 </div>
-                <div class="play-overlay">
-                    <div class="play-button">
-                        <div class="play-icon"></div>
+            </div>
+
+            <div class="btn-group fade-in-element" id="botao-delay" style="display: none;">
+                <a href="#offer-anchor" class="btn-primary">Quero Proteger Meus Filhos <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#saiba-mais" class="btn-secondary">Entenda os Riscos</a>
+            </div>
+
+            <div class="badges-container fade-in-element" id="badges-delay" style="display: none;">
+                <div class="badge-item"><i class="fa-solid fa-bolt" style="color: #F59E0B;"></i> <span>Resultados em 7 Dias</span></div>
+                <div class="badge-item"><i class="fa-solid fa-shield-halved" style="color: #EF4444;"></i> <span>+12.847 Famílias Salvas</span></div>
+                <div class="badge-item"><i class="fa-solid fa-ribbon" style="color: #8B5CF6;"></i> <span>Garantia Incondicional</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="warning-section" id="saiba-mais">
+        <div class="warning-container">
+            <div class="section-header">
+                <span class="pill-red"><i class="fa-solid fa-bell"></i> Epidemia Silenciosa</span>
+                <h2 class="section-title">Os 6 SINAIS DE ALARME da<br>Chupeta Digital</h2>
+                <p class="section-subtitle">Não é "fase", não é "birra". São <strong>respostas biológicas</strong> de um cérebro em colapso.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-face-angry"></i></div><h3 class="card-title">Irritabilidade Explosiva</h3><p class="card-text">Ele tem "pavio curto" ou reage com agressividade desproporcional ao perder a tela?</p></div>
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-house-lock"></i></div><h3 class="card-title">Isolamento Social</h3><p class="card-text">Recusa sair de casa? O quarto virou um cativeiro e a socialização morreu.</p></div>
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-arrow-trend-down"></i></div><h3 class="card-title">Queda Escolar</h3><p class="card-text">Notas despencando e memória fraca para estudos (mas ótima para jogos).</p></div>
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-bed"></i></div><h3 class="card-title">Sintomas Físicos</h3><p class="card-text">Insônia, dores de cabeça e visão prejudicada pela luz azul.</p></div>
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-brain"></i></div><h3 class="card-title">Destruição Cognitiva</h3><p class="card-text">O "Brain Rot". Incapacidade de focar por 5 minutos em algo não-digital.</p></div>
+                <div class="warning-card"><div class="icon-wrapper"><i class="fa-solid fa-skull-crossbones"></i></div><h3 class="card-title">Dependência Real</h3><p class="card-text">Abstinência química de dopamina. O cérebro não consegue mais sentir prazer sem a tela.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scientific-alert-section">
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation alert-icon-top"></i>
+            <h3 class="alert-headline">ATENÇÃO: A "Chupeta Digital" NÃO É Apenas um "Passatempo"<br><span>É Exaustão Física, Emocional e Mental</span></h3>
+            <p class="alert-body">O cérebro do seu filho está sendo <span class="alert-highlight">forçado a funcionar à base de hiperestímulos</span>. Preso em um ciclo químico de dopamina do qual não consegue sair sozinho.</p>
+            <div class="alert-footer"><i class="fa-solid fa-chart-simple"></i> Dados: Sociedade Brasileira de Pediatria (SBP), OMS e Instituto NeuroSaber</div>
+        </div>
+    </section>
+
+    <section class="transformation-section fade-in-element" id="transformation-delay" style="display: none;">
+        <div class="warning-container">
+            <div class="section-header">
+                <span class="pill-purple"><i class="fa-solid fa-wand-magic-sparkles"></i> A Transformação</span>
+                <h2 class="trans-title">O Guia Vai Trazer o Brilho nos<br>Olhos de Volta</h2>
+                <p class="section-subtitle">Com estratégias comprovadas, você vai reequilibrar o sistema nervoso do seu filho.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop" alt="Crianças correndo felizes" class="card-image">
+                    <div class="card-body"><div class="icon-box-trans ib-orange"><i class="fa-solid fa-bolt"></i></div><h3 class="tc-title t-orange">ENERGIA e SONO Restaurados</h3><p class="card-text">Bateria mental RECARREGADA. Sono profundo e reparador. A regulação emocional volta assim que a melatonina e a dopamina se equilibram.</p></div>
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?q=80&w=2054&auto=format&fit=crop" alt="Família feliz abraçada" class="card-image">
+                    <div class="card-body"><div class="icon-box-trans ib-purple"><i class="fa-regular fa-heart"></i></div><h3 class="tc-title t-purple">RECONEXÃO Familiar Real</h3><p class="card-text">Conversas VERDADEIRAS na mesa. Contato visual de volta. O fim do silêncio constrangedor e o retorno das memórias afetivas.</p></div>
+                </div>
+                <div class="trans-card">
+                    <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2070&auto=format&fit=crop" alt="Criança estudando feliz" class="card-image">
+                    <div class="card-body"><div class="icon-box-trans ib-green"><i class="fa-solid fa-arrow-trend-up"></i></div><h3 class="tc-title t-green">FOCO e APRENDIZADO Recuperados</h3><p class="card-text">Atenção sustentada voltando. Memória funcionando. Criatividade renascendo com o "tédio positivo".</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section fade-in-element" id="testimonials-delay" style="display: none;">
+        <div class="warning-container">
+            <div class="section-header">
+                <span class="pill-star"><i class="fa-solid fa-star"></i> Avaliação Média: 4.9/5</span>
+                <h2 class="trans-title">Depoimentos REAIS de Pais que<br>AGIRAM a Tempo</h2>
+                <p class="section-subtitle">Essas famílias aplicaram o método da <strong>Editora Reatar</strong> e hoje seus filhos têm a infância de volta.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Transformação em 5 dias</span></div>
+                    <p class="testi-quote">"Minha filha de 4 anos só comia assistindo vídeos. O 'Mito do Educativo' abriu meus olhos. Apliquei o Contrato Familiar e em 5 dias ela pediu pra brincar no chão da sala."</p>
+                    <div class="testi-author"><h4>Marina Costa</h4><p>Mãe de 2, recuperou o jantar em família</p></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Mudança total em 30 dias</span></div>
+                    <p class="testi-quote">"Meu filho de 11 anos vivia agressivo se eu tirasse o tablet. Fizemos o 'Detox Gradual' juntos e hoje ele voltou para o futebol. A explicação sobre dopamina salvou a gente."</p>
+                    <div class="testi-author"><h4>Carlos Eduardo</h4><p>Pai que venceu a batalha contra o Roblox</p></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Aprovado por especialista</span></div>
+                    <p class="testi-quote">"Trabalho com crianças há 15 anos e este guia é excepcional. A explicação sobre o 'Brain Rot' é cientificamente impecável. Indico para todos os pais no consultório."</p>
+                    <div class="testi-author"><h4>Juliana Ferreira</h4><p>Psicopedagoga e mãe de 3</p></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Fim das brigas em 2 semanas</span></div>
+                    <p class="testi-quote">"Eu tinha medo do meu filho de 14 anos, as reações eram violentas. O modelo de 'Contrato Familiar Digital' nos salvou. A paz reina aqui em casa de novo."</p>
+                    <div class="testi-author"><h4>Roberto Mendes</h4><p>Pai de adolescente</p></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Fala destravou em 15 dias</span></div>
+                    <p class="testi-quote">"Achava que 'Galinha Pintadinha' ensinava meu filho a falar. Cortei as telas e segui o guia. Em duas semanas ele começou a falar frases inteiras e olhar no meu olho."</p>
+                    <div class="testi-author"><h4>Ana Clara Souza</h4><p>Mãe de primeira viagem</p></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span class="tag-result">Sono regulado</span></div>
+                    <p class="testi-quote">"Minha filha de 7 anos parecia um zumbi. Apliquei o 'Toque de Recolher Digital' e tirei as telas do quarto. Agora ela dorme às 21h e as notas subiram."</p>
+                    <div class="testi-author"><h4>Fernanda Lima</h4><p>Mãe que venceu as telas</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer-section fade-in-element" id="offer-delay" style="display: none;">
+        <div class="warning-container" style="text-align: center;">
+            <div id="offer-anchor"></div> 
+            <div class="offer-pill"><i class="fa-regular fa-clock"></i> Última Chance - Oferta Expira em Breve</div>
+            <h2 class="offer-headline">Salve Seu Filho HOJE por<br>Menos que um Lanche</h2>
+            <p class="offer-subheadline">O método completo da Editora Reatar para quebrar o ciclo da dopamina e devolver a infância que seu filho merece.</p>
+
+            <div class="price-card">
+                <div class="pc-header">
+                    <span class="discount-badge">🔥 Promoção Exclusiva - Lote Promocional</span>
+                    <h3 class="product-name">E-book: A Chupeta Digital</h3>
+                    <p class="product-specs">O Guia Definitivo (Teoria + Estratégia)</p>
+                    <div style="font-size: 1.5rem; color: #8B5CF6; margin: 10px 0; font-weight: 900;">+</div>
+                    <div class="bonus-box">
+                        <span class="bonus-tag">GRÁTIS (Apenas para os 50 primeiros)</span>
+                        <h4 class="bonus-title"><i class="fa-solid fa-gift"></i> BÔNUS: Desafio 7 Dias</h4>
+                        <p class="bonus-desc">Roteiros diários para aplicar o detox sem brigas.</p>
                     </div>
+                    <div class="price-box">
+                        <span class="price-old">De R$ 97,00</span>
+                        <div class="price-new">R$ 27,90</div>
+                        <span class="price-save">Economia de R$ 69,10</span>
+                    </div>
+                    
+                    <a href="#" class="btn-primary btn-pulse-trigger" style="width: 100%; justify-content: center; margin-top: 15px; font-size: 1.2rem;">
+                        SIM! QUERO SALVAR MEU FILHO
+                    </a>
+                </div>
+                <div class="pc-body">
+                    <p style="font-weight: 800; color: #111; margin-bottom: 15px;">VOCÊ VAI RECEBER:</p>
+                    <ul class="check-list">
+                        <li><strong>Entenda o Inimigo (Cap 1):</strong> Como a dopamina sequestra o cérebro e causa o "Brain Rot".</li>
+                        <li><strong>O Mito do "Educativo" (Cap 3):</strong> Por que telas atrasam a fala em crianças menores de 2 anos.</li>
+                        <li><strong>Contrato Familiar (Cap 4):</strong> O modelo pronto para estabelecer regras sem guerras em casa.</li>
+                        <li><strong>Segurança Online (Cap 5):</strong> Proteção contra cyberbullying e predadores.</li>
+                        <li style="background: #F3E8FF; padding: 5px; border-radius: 4px; margin-left: -5px;"><strong>🎁 NO BÔNUS (Dia 4):</strong> Roteiro exato para lidar com a "Crise de Abstinência" e birras.</li>
+                        <li style="background: #F3E8FF; padding: 5px; border-radius: 4px; margin-left: -5px;"><strong>🎁 NO BÔNUS (Dia 6):</strong> Dinâmicas de reconexão para jantares sem celular.</li>
+                    </ul>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Garantia de 07 dias</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Acesso IMEDIATO</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Resultados em 7 dias</span>
+                        </div>
+                    </div>
+
+                    <div class="guarantee-box">
+                        <div class="gb-title"><i class="fa-solid fa-shield-halved"></i> GARANTIA BLINDADA</div>
+                        <p class="gb-text">Não precisa nem justificar. Se em <strong>07 dias</strong> você não ver seu filho MELHOR, devolvemos cada centavo dos seus R$ 27,90. <span class="gb-highlight">RISCO ZERO.</span></p>
+                    </div>
+                    <div class="security-footer"><i class="fa-solid fa-lock"></i> Pagamento 100% seguro e protegido</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="cta-container">
-            <a href="#oferta" class="btn-main">SIM! QUERO RESGATAR MEU FILHO</a>
-            <span class="guarantee-text">🔒 Compra Segura e Acesso Imediato</span>
-        </div>
-    </header>
+    <section class="final-warning-section fade-in-element" id="final-warning-delay" style="display: none;">
+        <div class="warning-container">
+            <div class="promo-alert-box">
+                <div class="pab-header">
+                    <i class="fa-solid fa-clock"></i> PROMOÇÃO LIMITADA: Preço de Lançamento
+                </div>
+                <p>Este é um guia completo com anos de pesquisa científica compilada.</p>
+                <p>Por tempo limitado, está disponível por <strong>apenas R$ 27,90</strong>.</p>
+                <p class="pab-footer">O preço pode aumentar a qualquer momento.</p>
+            </div>
 
-    <section class="section">
-        <h2 class="section-title">Seu filho apresenta estes sinais?</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">
-            Muitos pais ignoram estes sinais achando que é "coisa da idade". Mas a ciência mostra que podem ser sintomas de um cérebro sobrecarregado.
-        </p>
-        
-        <div class="problem-grid">
-            <div class="card">
-                <h3>😡 Irritabilidade Explosiva</h3>
-                <p>Ele tem "pavio curto" ou reage com agressividade desproporcional sempre que você retira o celular ou tablet?</p>
-            </div>
-            <div class="card">
-                <h3>🏝️ Isolamento Social</h3>
-                <p>Ele prefere ficar no quarto com a tela do que brincar com amigos, participar de almoços em família ou sair de casa?</p>
-            </div>
-            <div class="card">
-                <h3>📉 Queda Escolar</h3>
-                <p>Professores reclamam de falta de atenção? As notas caíram e a memória parece fraca para os estudos (mas ótima para jogos)?</p>
-            </div>
-            <div class="card">
-                <h3>😴 Sono Prejudicado</h3>
-                <p>Dificuldade para dormir, acordar cansado ou irritado. A luz azul pode estar inibindo a melatonina do seu filho.</p>
+            <div class="thinking-box">
+                <div class="tb-header"><i class="fa-regular fa-comment-dots"></i> Ainda está pensando?</div>
+                <p>A cada <strong>segundo que passa</strong>, seu filho perde mais um pedaço da infância.</p>
+                <p>Enquanto você "pensa", <span style="color: #EF4444; font-weight: 700;">o vício piora.</span></p>
+                <br>
+                <p>Você pode gastar R$ 27,90 HOJE e salvar seu filho...</p>
+                <p style="font-size: 0.9rem; color: #6B7280;">Ou gastar milhares em terapias, medicamentos e arrependimento depois.</p>
+                <br>
+                <p style="color: #7C3AED; font-weight: 800;">A escolha é sua. Mas a janela está fechando.</p>
             </div>
         </div>
     </section>
 
-    <section class="section book-section" id="oferta">
-        <div class="book-image">
-            <img src="src/capa.png" alt="Capa do Ebook A Chupeta Digital">
-        </div>
-        <div class="book-content">
-            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Apresentamos: A CHUPETA DIGITAL</h2>
-            <p><strong>O Guia Definitivo para Resgatar a Infância e Fortalecer os Vínculos Familiares.</strong></p>
-            <br>
-            <p>Este livro não foi escrito em um laboratório. Foi escrito pela <strong>Editora Reatar</strong>, por pais que sentiram na pele a dor de perder o controle e lutaram para trazer seus filhos de volta.</p>
+    <section class="faq-section fade-in-element" id="faq-delay" style="display: none;">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2 class="faq-title">Perguntas Frequentes</h2>
+                <p style="color: #6B7280;">Tire suas dúvidas e faça uma compra segura.</p>
+            </div>
 
-            <ul class="bullet-list">
-                <li><strong>O Efeito "Brain Rot":</strong> Entenda como o excesso de telas afeta fisicamente o cérebro infantil.</li>
-                <li><strong>O Mito do "Educativo":</strong> Por que telas para menores de 2 anos prejudicam a fala (baseado na SBP).</li>
-                <li><strong>Contrato Familiar Digital:</strong> O modelo pronto para estabelecer regras sem gerar guerras em casa.</li>
-                <li><strong>O Poder do Tédio:</strong> Como transformar o "não ter nada para fazer" em criatividade.</li>
-            </ul>
+            <div class="faq-item">
+                <div class="faq-question">O guia funciona para adolescentes? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+                <div class="faq-answer">Sim. O livro possui capítulos específicos para a faixa de 11 a 18 anos, focando em "Contratos de Confiança", privacidade e como lidar com redes sociais e jogos competitivos, sem tratar o adolescente como criança pequena.</div>
+            </div>
 
-            <div style="margin-top: 2rem;">
-                <a href="#" class="btn-main">COMPRAR AGORA (R$ XX,90)</a>
+            <div class="faq-item">
+                <div class="faq-question">Preciso proibir as telas para sempre? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+                <div class="faq-answer">Não! A proposta do método "Editora Reatar" não é viver numa caverna, mas sim o equilíbrio. Você vai aprender a definir horários e zonas livres de tecnologia, permitindo que seu filho use as telas de forma saudável e segura.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">E se eu (pai/mãe) também uso muito o celular? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+                <div class="faq-answer">O Capítulo 4 é dedicado inteiramente ao "Detox dos Pais" e ao poder do exemplo. Você encontrará estratégias para reduzir seu próprio uso e se tornar o modelo que seu filho precisa seguir.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Como recebo o material? Chega em casa? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+                <div class="faq-answer">O produto é 100% digital (E-book em PDF). Assim que o pagamento for aprovado, você recebe um e-mail com o link para baixar e ler imediatamente no celular, tablet ou computador. Não há envio físico.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">E se eu não gostar? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+                <div class="faq-answer">Você tem Garantia Incondicional de 7 dias. Se você ler e achar que não serve para sua família, basta enviar um único e-mail e devolvemos 100% do seu dinheiro. Sem perguntas.</div>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="section-title">Perguntas Frequentes</h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">Preciso proibir as telas totalmente? <span style="float:right">+</span></div>
-            <div class="faq-answer">
-                <p>Não. Proibir totalmente é irrealista. O guia ensina o <strong>equilíbrio</strong> e o uso consciente, transformando a tela em ferramenta e não em vício.</p>
-            </div>
+    <footer class="fade-in-element" id="footer-delay" style="display: none;">
+        <div class="footer-content">
+            <p>&copy; 2025 Editora Reatar. <br>Reatando laços através de livros com propósito.</p>
+            <p class="disclaimer">
+                Todos os direitos reservados.
+            </p>
         </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Meu filho é adolescente, ainda funciona? <span style="float:right">+</span></div>
-            <div class="faq-answer">
-                <p>Sim. Temos capítulos dedicados a faixas etárias de 11 a 18 anos, abordando privacidade, redes sociais e como criar acordos com adolescentes.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">É um livro físico ou digital? <span style="float:right">+</span></div>
-            <div class="faq-answer">
-                <p>É um livro 100% digital (E-book em PDF). Você recebe o acesso imediatamente no seu e-mail após a compra.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Editora Reatar. Todos os direitos reservados.</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem;">Este site não faz parte do site do YouTube ou da Google Inc.</p>
     </footer>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <div class="urgency-bar fade-in-element" id="urgency-bar-delay" style="display: none;">
+        <span>
+            <i class="fa-regular fa-clock" style="margin-right: 6px;"></i>
+            OFERTA TERMINA EM: <span id="timer" style="color: #BE185D; font-weight: 800;">23:58:30</span> 
+            <span style="margin: 0 5px; opacity: 0.5;">|</span> 
+            <span style="color: #DC2626; font-weight: 900; background: #FEE2E2; padding: 2px 8px; border-radius: 4px;">Apenas 47 cópias restantes!</span>
+        </span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
