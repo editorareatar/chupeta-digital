@@ -54,11 +54,21 @@ body { background-color: #f9fafb; min-height: 100vh; font-family: 'Inter', sans-
 .hero-content { position: relative; z-index: 2; max-width: 900px; width: 100%; }
 
 .alert-pill { 
-    background-color: #FCE7F3; color: #BE185D; padding: 8px 24px; border-radius: 50px; 
+    background-color: #FFF1F2; /* Ajustei levemente o fundo para um tom mais claro para destacar o vermelho */
+    color: #FF0000; /* VERMELHO VIBRANTE */
+    padding: 8px 24px; border-radius: 50px; 
     font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; 
-    border: 1px solid rgba(190, 24, 93, 0.2); margin-bottom: 25px; 
+    border: 1px solid rgba(255, 0, 0, 0.2); /* Borda acompanha o vermelho */
+    margin-bottom: 25px; 
     display: inline-flex; align-items: center; gap: 8px; 
     animation: pulse-alert 2s infinite; 
+}
+
+/* Adicione esta regra logo abaixo do .alert-pill para pintar o ícone */
+.alert-pill i {
+    color: #FFCC00; /* AMARELO VIBRANTE */
+    font-size: 1.1rem; /* Aumentei um pouquinho para o amarelo não sumir */
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.1); /* Uma leve sombra para garantir leitura no fundo claro */
 }
 
 h1 { font-size: 3rem; line-height: 1.1; color: var(--text-dark); font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
