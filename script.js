@@ -125,30 +125,36 @@ function createConfetti() {
    =========================================================== */
 window.onload = function () {
     
-    // 1. INICIA O TIMER PERSISTENTE (24 horas = 86400 segundos)
+    // --- VERIFICAÇÃO DE PÁGINA DE SUCESSO (CHECKOUT) ---
+    var successPage = document.getElementById('confetti-wrapper');
+    if (successPage) {
+        localStorage.removeItem('offerEndTime');
+        localStorage.removeItem('currentStock');
+        createConfetti();
+        return; // Para o script aqui
+    }
+
+    // --- LÓGICA DA PÁGINA DE VENDAS ---
+
+    // 1. Inicia Timer e Estoque
     var displayTimer = document.querySelector('#timer');
     if (displayTimer) {
         var twentyFourHoursInSeconds = 60 * 60 * 24;
         startPersistentTimer(twentyFourHoursInSeconds, displayTimer);
     }
-    
-    // 2. INICIA SIMULADOR DE ESTOQUE
     startStockSimulator();
-    
-    // 3. INICIA FAQ
     initFAQ();
-    
-    // 4. LÓGICA DA BARRA DE URGÊNCIA (FLUTUANTE)
+
+    // 2. Lógica da Barra de Urgência (Scroll)
     window.addEventListener('scroll', function() {
         var bar = document.getElementById('urgency-bar-delay');
         var footer = document.querySelector('footer');
         
-        if (!bar || !footer || bar.style.display === 'none') return;
+        if (!bar || !footer || bar.style.display === 'none') return; // Só roda se a barra já estiver visível
 
         var footerRect = footer.getBoundingClientRect();
         var windowHeight = window.innerHeight;
 
-        // Se o footer aparecer na tela, empurra a barra pra cima
         if (footerRect.top < windowHeight) {
             var visiblePart = windowHeight - footerRect.top;
             bar.style.bottom = (20 + visiblePart) + 'px';
@@ -156,8 +162,12 @@ window.onload = function () {
             bar.style.bottom = '20px';
         }
     });
+
+    // =========================================================
+    // 3. VSL DELAY (LÓGICA DO TEMPO DO VÍDEO)
+    // =========================================================
     
-    // 5. DELAY GERAL DE ELEMENTOS (VSL)
+    // IDs dos elementos que ficam escondidos
     var elementosIds = [
         'botao-delay', 
         'urgency-bar-delay', 
@@ -169,27 +179,39 @@ window.onload = function () {
         'faq-delay',
         'footer-delay'
     ];
-    
-    // TEMPO DO DELAY EM SEGUNDOS
-    var tempoSegundos = 5; 
 
-    setTimeout(function() {
+    // Tempo alvo: 4 minutos e 28 segundos = 268 segundos
+    // Multiplicamos por 1000 para virar milissegundos
+    var tempoDelay = 180 * 1000; 
+
+    // Verifica se o usuário JÁ VIU a oferta antes (Cookies/LocalStorage)
+    var jaViuOferta = localStorage.getItem('userHasSeenOffer');
+
+    // Função que mostra tudo
+    function showElements() {
         elementosIds.forEach(function(id) {
             var el = document.getElementById(id);
             if(el) { 
-                // Define display based on logic (block for sections, flex for bars/buttons)
+                // Define se é block ou flex dependendo do elemento
                 if (['transformation-delay', 'testimonials-delay', 'offer-delay', 'final-warning-delay', 'faq-delay', 'footer-delay'].includes(id)) {
                     el.style.display = 'block';
                 } else {
                     el.style.display = 'flex';
                 }
-                
-                // Adiciona classe para animação de fade-in
+                // Adiciona o fade-in suave
                 setTimeout(function() { el.classList.add('visible'); }, 50); 
             }
         });
-    }, tempoSegundos * 1000);
+        
+        // Salva que o usuário já viu (para a próxima vez ser instantâneo)
+        localStorage.setItem('userHasSeenOffer', 'true');
+    }
 
-    // 6. Confetes (apenas se existir o container)
-    createConfetti();
+    if (jaViuOferta) {
+        // Se já viu antes, mostra rápido (apenas 1 segundo de carregamento)
+        setTimeout(showElements, 1000);
+    } else {
+        // Se é a primeira vez, espera os 4:28 (268 segundos)
+        setTimeout(showElements, tempoDelay);
+    }
 };
