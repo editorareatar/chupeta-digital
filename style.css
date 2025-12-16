@@ -232,11 +232,32 @@ footer { background: #111827; color: #9CA3AF; padding: 40px 20px; text-align: ce
 
 /* --- URGENCY BAR --- */
 .urgency-bar {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px;
-    background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(190, 24, 93, 0.3); padding: 15px; border-radius: 16px;
-    display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.15); z-index: 100;
-    color: #831843; font-weight: 700; font-size: 0.95rem; opacity: 0; transition: opacity 1s ease-in-out;
+    position: fixed; 
+    bottom: 20px; 
+    
+    /* MUDANÇA AQUI: Nova técnica de centralização que não quebra com animação */
+    left: 0; 
+    right: 0; 
+    margin: 0 auto; 
+    
+    width: 90%; 
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(190, 24, 93, 0.3); 
+    padding: 15px; 
+    border-radius: 16px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+    z-index: 100;
+    color: #831843; 
+    font-weight: 700; 
+    font-size: 0.95rem; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out;
 }
 @media (max-width: 768px) { 
     .urgency-bar { flex-direction: column; padding: 10px; bottom: 10px; font-size: 0.8rem; } 
@@ -323,3 +344,25 @@ header { background: white; padding: 20px 0; border-bottom: 1px solid #E5E7EB; t
 
 /* Ajuste Body Checkout */
 body:has(.success-card) { display: flex; flex-direction: column; }
+
+/* --- ESTILO DO MODO PRORROGAÇÃO (Lote Extra) --- */
+.urgency-mode-active {
+    background: rgba(255, 241, 242, 0.95) !important; 
+    border: 2px solid #EF4444 !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4) !important;
+    animation: pulse-aggressive 2s infinite !important;
+}
+
+.urgency-mode-active span, 
+.urgency-mode-active i {
+    color: #991B1B !important; /* Texto vermelho escuro para leitura fácil */
+}
+
+/* Ajuste para telas pequenas (Celular) para o texto não quebrar feio */
+@media (max-width: 480px) {
+    .urgency-mode-active {
+        font-size: 0.75rem; /* Diminui um pouco a fonte no modo erro */
+        padding: 10px 5px;
+        width: 95%; /* Ocupa mais espaço na tela do celular */
+    }
+}

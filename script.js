@@ -1,47 +1,94 @@
 /* ===========================================================
-   FUNÇÃO 1: TIMER PERSISTENTE (Salva no LocalStorage)
+   FUNÇÃO 1: TIMER PERSISTENTE + MODO PRORROGAÇÃO
    =========================================================== */
 function startPersistentTimer(durationInSeconds, display) {
-    var timerKey = 'offerEndTime'; // Nome da "gaveta" onde guardamos a hora
+    var timerKey = 'offerEndTime'; 
+    var extensionKey = 'offerExtendedMode'; // Chave para saber se já entrou na prorrogação
+    
     var now = new Date().getTime();
     var endTime = localStorage.getItem(timerKey);
+    var isExtended = localStorage.getItem(extensionKey) === 'true';
 
-    // Se não existir data salva OU se a data salva já passou (timer zerou)
+    // Elementos visuais para mudar
+    var labelDisplay = document.getElementById('timer-label');
+    var urgencyBar = document.getElementById('urgency-bar-delay');
+
+    // Função auxiliar para ativar o visual de "Prorrogação"
+    function activateExtensionVisuals() {
+        if(labelDisplay) {
+            // Texto curto e direto para evitar quebrar linha no celular
+            labelDisplay.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> EXPIROU! Lote Extra:";
+        }
+        if(urgencyBar) {
+            // Adiciona a classe CSS bonita que criamos
+            urgencyBar.classList.add('urgency-mode-active');
+        }
+    }
+
+    // Se já estiver em modo prorrogação ao carregar a página
+    if (isExtended) {
+        activateExtensionVisuals();
+    }
+
+    // Se não existir data ou data já passou
     if (!endTime || now > endTime) {
-        // Define uma nova meta: Agora + Duração em segundos * 1000 (ms)
+        // Se já passou do tempo e NÃO estava estendido, ativa a extensão agora
+        if (now > endTime && !isExtended) {
+            isExtended = true;
+            localStorage.setItem(extensionKey, 'true');
+            activateExtensionVisuals();
+            // Dá apenas 15 minutos (900 segundos) de "chance final"
+            durationInSeconds = 900; 
+        }
+
         endTime = now + (durationInSeconds * 1000);
         localStorage.setItem(timerKey, endTime);
     }
 
-    // Função que atualiza o visual a cada segundo
     function updateTimer() {
         var currentTime = new Date().getTime();
         var distance = endTime - currentTime;
 
         // Se o tempo acabou
         if (distance < 0) {
-            // Reinicia o ciclo para mais 24h (Oferta Evergreen)
-            endTime = new Date().getTime() + (durationInSeconds * 1000);
-            localStorage.setItem(timerKey, endTime);
-            distance = durationInSeconds * 1000;
+            // Se acabou o tempo normal, entra no modo prorrogação
+            if (!isExtended) {
+                isExtended = true;
+                localStorage.setItem(extensionKey, 'true');
+                activateExtensionVisuals();
+                
+                // Define 10 ou 15 minutos para a prorrogação (chance final)
+                var extensionDuration = 900; // 900s = 15 minutos
+                endTime = new Date().getTime() + (extensionDuration * 1000);
+                localStorage.setItem(timerKey, endTime);
+                distance = extensionDuration * 1000;
+            } else {
+                // Se o tempo DA PRORROGAÇÃO acabou, reinicia o ciclo de 15 min (loop da prorrogação)
+                // Ou você pode reiniciar para 24h, depende da estratégia. 
+                // Aqui vou manter loop curto de 15min para manter a pressão alta.
+                endTime = new Date().getTime() + (900 * 1000);
+                localStorage.setItem(timerKey, endTime);
+                distance = 900 * 1000;
+            }
         }
 
-        // Cálculos matemáticos para horas, minutos e segundos
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Adiciona o zero à esquerda se for menor que 10
         hours = hours < 10 ? "0" + hours : hours;
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = hours + ":" + minutes + ":" + seconds;
+        
+        // Se estiver estendido, força a cor vermelha no relógio também
+        if(isExtended) {
+            display.style.color = "#DC2626";
+        }
     }
 
-    // Chama uma vez imediatamente para não ter delay de 1s ao carregar
     updateTimer();
-    // Inicia o intervalo de 1 segundo
     setInterval(updateTimer, 1000);
 }
 
