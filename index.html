@@ -34,8 +34,24 @@
             <h1>Seu Filho Está Preso na <br><span class="gradient-text">CHUPETA DIGITAL</span> e Você <br>Nem Percebeu</h1>
             <p class="subheadline">Irritabilidade constante. Sono perturbado. Isolamento social. Queda nas notas.<br><strong>É o cérebro do seu filho pedindo SOCORRO.</strong></p>
             
-            <div class="video-box">
-                <iframe src="src/VSL Chupeta Digital.mp4" loading="lazy" style="border:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
+            <div class="video-box" style="background: #000; position: relative;">
+                <video 
+                    id="meu-vsl" 
+                    width="100%" 
+                    height="100%" 
+                    controls 
+                    controlsList="nodownload noplaybackrate" 
+                    disablePictureInPicture
+                    oncontextmenu="return false;" 
+                    playsinline
+                    
+                    style="border-radius: 12px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                    
+                    <source src="src/vsl.mp4" type="video/mp4">
+                    
+                    Seu navegador não suporta a reprodução de vídeos.
+                </video>
+
             </div>
 
             <div class="btn-group fade-in-element" id="botao-delay" style="display: none;">
@@ -290,4 +306,5 @@
 </body>
 
 </html>
+
 
