@@ -30,22 +30,27 @@
     <section class="hero-section">
         <div class="overlay-layer"></div>
         <div class="hero-content">
-            <div class="alert-pill"><i class="fa-solid fa-triangle-exclamation"></i> ALERTA URGENTE PARA PAIS</div>
-            <h1>Seu Filho Está Preso na <br><span class="gradient-text">CHUPETA DIGITAL</span> e Você <br>Nem Percebeu</h1>
-            <p class="subheadline">Irritabilidade constante. Sono perturbado. Isolamento social. Queda nas notas.<br><strong>É o cérebro do seu filho pedindo SOCORRO.</strong></p>
-            
+            <div class="alert-pill"><i class="fa-solid fa-triangle-exclamation"></i> ATENÇÃO: DEVIDO A ALTA DEMANDA, ESTAMOS COM ACESSO LIMITADO.</div>
+            <h1>SEU FILHO ESTÁ PRESO NA <br><span class="gradient-text">CHUPETA DIGITAL</span> E A CULPA <br>NÃO É DELE.</h1>
+            <div class="alert-pill"><i class="fa-solid"></i>🚨 SE VOCÊ É PAI OU MÃE, NÃO IGNORE ISSO<br> O TEMPO PARA AGIR ESTÁ ACABANDO!
+            </div>
+            <br><br>            
             <div class="video-box" style="background: #000; position: relative;">
+                <div id="play-overlay" class="video-play-overlay" onclick="playVSL()">
+                    <div class="play-btn-giant">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
                 <video 
                     id="meu-vsl" 
                     width="100%" 
                     height="100%" 
-                    controls 
                     controlsList="nodownload noplaybackrate" 
                     disablePictureInPicture
                     oncontextmenu="return false;" 
                     playsinline
                     poster="src/filho-menino-viciado-em-tela-tablet.jpg" 
-                    style="border-radius: 12px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                    style="border-radius: 12px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.5); cursor: pointer;">
                     
                     <source src="src/vsl.mp4" type="video/mp4">
                     
@@ -168,7 +173,7 @@
             <p class="offer-subheadline">O método completo da Editora Reatar para quebrar o ciclo da dopamina e devolver a infância que seu filho merece.</p>
 
             <div class="price-card">
-                <div class="pc-header">
+                <div id="comprar-agora" class="pc-header">
                     <span class="discount-badge">🔥 Promoção Exclusiva - Lote Promocional</span>
                     <h3 class="product-name">E-book: A Chupeta Digital</h3>
                     <p class="product-specs">O Guia Definitivo (Teoria + Estratégia)</p>
@@ -180,7 +185,12 @@
                     </div>
                     <div class="price-box">
                         <span class="price-old">De R$ 97,00</span>
-                        <div class="price-new">R$ 27,90</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: #374151; margin: 5px 0;">por apenas</div>
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 6px;">
+                            <span style="font-size: 1.5rem; font-weight: 800; color: #374151;">6x de</span>
+                            <div class="price-new">R$ 5,24</div>
+                        </div>
+                        <div style="font-size: 1rem; color: #6B7280; font-weight: 600; margin-top: 5px;">ou R$ 27,90 à vista</div>
                         <span class="price-save">Economia de R$ 69,10</span>
                     </div>
                     
@@ -292,7 +302,7 @@
         </div>
     </footer>
 
-    <div class="urgency-bar fade-in-element" id="urgency-bar-delay" style="display: none;">
+    <div class="urgency-bar fade-in-element" id="urgency-bar-delay" style="display: none; cursor: pointer;" onclick="document.getElementById('comprar-agora').scrollIntoView({behavior: 'smooth'});">
         <span>
             <i class="fa-regular fa-clock" style="margin-right: 6px;"></i>
             <span id="timer-label">OFERTA TERMINA EM:</span> 
@@ -304,10 +314,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
-
-

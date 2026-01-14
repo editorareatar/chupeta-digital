@@ -210,6 +210,15 @@ window.onload = function () {
         }
     });
 
+    // MONITORAR PLAY NATIVO (Caso a pessoa clique nos controles do vídeo e não no botão gigante)
+    var vsl = document.getElementById('meu-vsl');
+    if(vsl) {
+        vsl.addEventListener('play', function() {
+             var overlay = document.getElementById('play-overlay');
+             if(overlay) overlay.style.display = 'none';
+        });
+    }
+
     // =========================================================
     // 3. VSL DELAY (LÓGICA DO TEMPO DO VÍDEO)
     // =========================================================
@@ -227,9 +236,8 @@ window.onload = function () {
         'footer-delay'
     ];
 
-    // Tempo alvo: 4 minutos e 28 segundos = 268 segundos
-    // Multiplicamos por 1000 para virar milissegundos
-    var tempoDelay = 180 * 1000; 
+    // Tempo alvo: 2 minutos e 28 segundos = 148 segundos
+    var tempoSegundos = 148;
 
     // Verifica se o usuário JÁ VIU a oferta antes (Cookies/LocalStorage)
     var jaViuOferta = localStorage.getItem('userHasSeenOffer');
@@ -258,7 +266,40 @@ window.onload = function () {
         // Se já viu antes, mostra rápido (apenas 1 segundo de carregamento)
         setTimeout(showElements, 1000);
     } else {
-        // Se é a primeira vez, espera os 4:28 (268 segundos)
-        setTimeout(showElements, tempoDelay);
+        // Se é a primeira vez, sincroniza com o tempo do vídeo (2:28)
+        var video = document.getElementById('meu-vsl');
+        var elementsShown = false;
+
+        if (video) {
+            video.addEventListener('timeupdate', function() {
+                if (!elementsShown && video.currentTime >= tempoSegundos) {
+                    elementsShown = true;
+                    showElements();
+                }
+            });
+        } else {
+            // Fallback caso o vídeo não carregue corretamente
+            setTimeout(showElements, tempoSegundos * 1000);
+        }
     }
 };
+
+/* ===========================================================
+   FUNÇÃO 5: PLAY NO VÍDEO (Botão Gigante)
+   =========================================================== */
+function playVSL() {
+    var video = document.getElementById('meu-vsl');
+    var overlay = document.getElementById('play-overlay');
+    if (video) {
+        video.play();
+        video.muted = false; // Garante som ligado
+        video.volume = 1.0;
+        if (overlay) overlay.style.display = 'none';
+
+        // Permite pausar/continuar clicando no vídeo (pois removemos os controles)
+        video.onclick = function() {
+            if (video.paused) video.play();
+            else video.pause();
+        };
+    }
+}
